@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Page Title</title>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="mystyle.css">
     </head>
     <body>
         <h1>Workshop #HTML - FORM</h1>
+        <form class="styled-form">
         <table>
-            <tr><td scope="row"><form><label for="fname">ชื่อ</label> &emsp;
-                <input type="text" id="fname" name="fname"><br></form></td></tr>
+            <tr><td scope="row"><label for="fname">ชื่อ</label> &emsp;
+                <input type="text" id="fname" name="fname"><br></td></tr>
 
-            <tr><td scope="row"><form><label for="lname">สกุล</label> &emsp;
-                <input type="text" id="lname" name="lname"><br></form></td></tr>
+            <tr><td scope="row"><label for="lname">สกุล</label> &emsp;
+                <input type="text" id="lname" name="lname"><br></td></tr>
             
-            <tr><td scope="row"><form>
+            <tr><td scope="row">
                 วัน/เดือน/ปีเกิด &emsp;
-                <input type="date"><br></form></td></tr>
+                <input type="date"><br></td></tr>
             
             <tr><td scope="row"><label for="age">อายุ</label> &emsp;
                 <input type="text" id="age" name="age"><br></td></tr>
                 
-            <tr><td scope="row"><form>
+            <tr><td scope="row">
                 เพศ &emsp;
                 <input type="radio" id="boy" name="ur_sex" value="boy">
                 <label for="boy">ชาย</label>
                 <input type="radio" id="girl" name="ur_sex"
                 value="girl">
                 <label for="girl">หญิง</label>
-                </form></td></tr>
+                </td></tr>
             
-            <tr><td scope="row"><form>
+            <tr><td scope="row">
                 รูป &emsp; &emsp;
                 <label for="myfile"></label>
                 <input type="file" id="myfile" name="myfile">
-                </form></td></tr>
+                </td></tr>
               
-            <tr><form><td scope="row">ที่อยู่ &emsp;
-                <textarea rows="4" cols="40"></textarea><br></form></td></tr>
+            <tr><td scope="row">ที่อยู่ &emsp;
+                <textarea rows="4" cols="40"></textarea><br></td></tr>
             
-            <tr><td scope="row"><form>สีที่ชอบ &emsp;
+            <tr><td scope="row">สีที่ชอบ &emsp;
             <select name="col" id="color" size="1">
                 <option value="red">สีแดง</option>
-            </select><br></form></td></tr>
+            </select><br></td></tr>
             
-            <tr><td scope="row"><form>
+            <tr><td scope="row">
                 แนวเพลงที่ชอบ &emsp;
                 <input type="radio" id="life" name="song" value="life">
                 <label for="life">เพื่อชีวิต</label>
@@ -51,18 +56,18 @@
                 <label for="son">ลูกทุ่ง</label>
                 <input type="radio" id="other" name="song" value="other">
                 <label for="other">อื่นๆ</label>
-                </form><br></td></tr>
+                <br></td></tr>
 
-            <tr><td scope="row"><form>
+            <tr><td scope="row">
                 <input type="checkbox" id="accept" name="decide" value="Accept">
-                <label for="accept"> ยินยอมให้เก็บข้อมูล</label><br><br><br></form></td></tr>
+                <label for="accept"> ยินยอมให้เก็บข้อมูล</label><br><br><br></td></tr>
             
-            <tr><td scope="row"><form>
+            <tr><td scope="row" style="text-align: center;">
                 <button type="reset">Reset</button>  
                 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-                <button type="submit">Submit</button><br></form></td></tr>
+                <button type="submit">Submit</button><br></td></tr>
                   
             </table>
-            <p></p>
+        </form>
     </body>
 </html>
