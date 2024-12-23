@@ -1,0 +1,89 @@
+body {
+    font-family: 'Sigmar One', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #ffd4f4, #f2d1ff, #ffa8c5);
+    background-size: 400% 400%;
+    animation: backgroundMove 10s infinite alternate;
+    color: #000000;
+}
+
+/* แอนิเมชันสำหรับพื้นหลัง */
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 28pt;
+    color: #2a2727;
+}
+
+.styled-form {
+    background: rgba(255, 254, 254, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 8px 16px rgba(41, 40, 40, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.styled-form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ส่วนของ input, textarea, และปุ่ม */
+input[type="text"],
+input[type="date"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 8px solid #ff7cb3;
+    border-radius: 6px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #f3bbff;
+    box-shadow: 0 0 8px rgba(255, 129, 192, 0.8);
+    outline: none;
+}
+
+button {
+    padding: 12px 24px;
+    margin: 5px;
+    background-color: #ff3f7f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #fe73b4;
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0);
+}
