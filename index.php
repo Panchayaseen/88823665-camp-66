@@ -26,7 +26,7 @@
         $x = 1;
         function myfunction($myparam){
             global $x;
-            $x = "Hello World";
+            $x = "Hello";
             return $myparam;
         }
         
@@ -71,9 +71,6 @@
         foreach($my_array as $value){
             echo $value;
         }
-       
-
         ?>
-
     </body>
-    </html>
+</html>
