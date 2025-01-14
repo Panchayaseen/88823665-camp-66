@@ -1,14 +1,9 @@
-<h1>My View</h1>
-<?php echo $value_id; ?>
-{{ $value_id; }} | {{$myinput}}
-<form action="{{url('/mycontroller')}}"
-    method="post">   
+<h1>My Controller</h1>
+<h1>myinput: {{ $myinput; }}</h1>
+<h1>myvalue: <?php  echo $myvalue; ?></h1>
+<form method="post"
+      action="{{ url('/mycontroller') }}">
     @csrf
     <input type="text" name="myinput">
-    <bottom type="submit">
-        submit
-    </bottom>
+    <button type="submit">Submit</button>
 </form>
-<?php for($i=0; $i<10; $i++){?>
-    <h1>{{$i}}</h1>
-<?php }?>
