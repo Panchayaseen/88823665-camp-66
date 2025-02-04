@@ -15,15 +15,15 @@
         <form action="{{ url('/register')}}" method="post">
           @csrf
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Full Name" />
+            <input type="text"name="name" class="form-control" placeholder="Full Name"required />
             <div class="input-group-text"><span class="bi bi-person"></span></div>
           </div>
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email" />
+            <input type="email"name="email" class="form-control" placeholder="Email"required />
             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" />
+            <input type="password"name="password" class="form-control" placeholder="Password"required />
             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
           </div>
           <!--begin::Row-->

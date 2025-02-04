@@ -5,28 +5,27 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
-Route::get('/login', 
-    [LoginController::class, 'index']);
+Route::get('/mylaravel/{id?}',[Mycontroller::class,'myfunction']);
+Route::post('/mylaravel/{id?}',[Mycontroller::class,'myfunction']);
 
-Route::get('/register', 
-    [RegisterController::class, 'index']);
+Route::get( '/', [HomeController::class, 'index']);
+Route::post('/', [HomeController::class, 'index']);
+Route::get( '/home', [HomeController::class, 'index']);
+Route::post('/home', [HomeController::class, 'index']);
 
- Route::get('/home', 
-    [HomeController::class, 'index']);
+Route::get('/user',  [UserController::class,'index']);
 
-Route::get("/", function(){
-    return view("layouts.default");});  
+Route::get('/register',  [RegisterController::class,'index']);
+Route::post('/register',  [RegisterController::class,'create']);
 
-//  Route::get('/home', function(){
-    // return view("layouts.default");
-    // });
 
-Route::get('/mycontroller/{id?}', 
-    [MyController::class,'myfunction']);
+Route::get('/login',  [LoginController::class,'index']);
+Route::post('/login',  [LoginController::class,'index']);
 
-Route::post("/mycontroller/{id?}", 
-    [MyController::class,'myfunction']);
-    
- Route::post("/hello", function(){
-    return "<h1>Hello World!</h1>";});
+
+
+Route::get('/user/{id}',  [UserController::class,'edit']);
+Route::put('/user' ,[UserController::class, 'edit_action']);
+Route::delete('/user/{id}',[UserController::class, 'delete']);
