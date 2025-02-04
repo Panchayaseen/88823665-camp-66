@@ -3,6 +3,8 @@
 @section('content')
 <div class="register-page">
 <div class="register-box">
+  <div class="card">
+    <div class="regi">
     <div class="register-logo">
       <a href="../index2.html"><b>Admin</b>LTE</a>
     </div>
@@ -63,3 +65,46 @@
   </div>
 </div>
   @endsection
+  @section('scripts')
+  <script>
+    console.log("Hello World")
+    //ALERT("Hello World")
+    </script>
+    <script>
+
+      //alert("Hello World!")
+      let myval
+      var myval2
+      const PI=3.14
+      pi=2
+      console.log(PI,pi)
+      let myarry = [];
+      myarry = Array()
+
+      myarry[0] = 1
+      myarry["1"] = 2
+      myarry.push(3)
+      myarry.push(4)
+      console.log(myarry)
+      myarry.pop()
+      console.log(myarry)
+      for(a=1; a<10; a++){
+        console.log(a);
+      }
+
+    function clickme(){
+      let name = document.getElemenById('name');
+      name.value = "new test"
+      name = $('#name').val("new with jquery")
+      $('#name')
+      console.log("Hello!",name)
+      return false;
+    }
+
+    $(document).ready(function(){
+
+    })
+
+      </script>
+
+      @endsection
