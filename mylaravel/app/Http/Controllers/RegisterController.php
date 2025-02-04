@@ -14,10 +14,19 @@ class RegisterController extends Controller
     }
 
     function create(Request $req){
-        $obj_user = new Users;
+        // print_r($req->input());
+        $obj_user = new User;
         $obj_user->name = $req->input('name');
-        $obj_user->email = $req->input('name');
-        $obj_user->password = $req->input('name');
-        print_r($req->input());
+        $obj_user->email = $req->email;
+        $obj_user->password = $req->password;
+        // $obj_user->save();
+
+        User::create([
+            'name' => $req->name,
+            'email' => $req->email,
+            'password' => $req->password
+        ]);
+
+        return redirect('/users');
     }
 }
