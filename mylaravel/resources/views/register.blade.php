@@ -15,7 +15,7 @@
         <form action="{{ url('/register') }}" onsubmit="return myfunction();" method="post">
           @csrf
           <div class="input-group mb-3">
-            <input type="text"name="name" class="form-control" placeholder="Full Name" />
+            <input type="text"name="name"id="name" class="form-control"oninput = "checkName()" placeholder="Full Name" />
             <div class="input-group-text"><span class="bi bi-person"></span></div>
             <div class="valid-feedback">
             OK
@@ -26,12 +26,24 @@
 </div>
 
           <div class="input-group mb-3">
-            <input type="email"name="email" class="form-control" placeholder="Email" />
+            <input type="email"name="email" id="email"oninput = "checkEmail()" class="form-control" placeholder="Email" />
             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+            <div class="valid-feedback">
+            OK
+          </div>
+          <div class="invalid-feedback" id="invalid-name">
+            กรุณาระบุข้อมูล email
+</div>
           </div>
           <div class="input-group mb-3">
-            <input type="password"name="password" class="form-control" placeholder="Password" />
+            <input type="password"name="password" id="password" oninput = "checkPassword()"class="form-control" placeholder="Password" />
             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+            <div class="valid-feedback">
+            OK
+          </div>
+          <div class="invalid-feedback" id="invalid-name">
+            กรุณาระบุข้อมูล password
+</div>
           </div>
           <!--begin::Row-->
           <div class="row">
@@ -45,7 +57,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <div class="d-grid gap-2">
+              <div class="d-grid gap-2 " onclick = "return check()">
                 <button type="submit" class="btn btn-primary">Sign In</button>
               </div>
             </div>
@@ -99,8 +111,72 @@
  // myfunction()
     </script>
     <script>
+        function checkName(){
+          $('#name').removeClass('is-invalid');
+          $('#name').removeClass('is-valid');
+          let name = document.getElementById('name');
+        if(name.value == ' '){
+          $('#name').addClass('is-invalid');
+        }else{
+          $('#name').addClass('is-valid');
+        }
+        return true;
+        }
 
-      console.log(myval2)
-      </script>
+
+
+        function checkEmail(){
+          $('#email').removeClass('is-invalid');
+          $('#email').removeClass('is-valid');
+          let emailcorrect = /^[a-zA-Z0-9+-_%.]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/;
+          let email = document.getElementById('email');
+        if(email.value == ' '){
+          $('#email').addClass('is-invalid');
+          return false;
+        }else if (!emailcorrect.test(email.value)){
+          $('#email').addClass('is-invalid');
+          return false;
+        }else{
+          $('#email').addClass('is-valid');
+          return true;
+        }
+        
+        }
+
+
+        
+        function checkPassword(){
+          $('#password').removeClass('is-invalid');
+          $('#password').removeClass('is-valid');
+          let password = document.getElementById('password');
+          let passwordcorrect = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])[a-zA-Z0-9+-_%.]{8,}$/;
+          if(password.value == ' '){
+          $('#password').addClass('is-invalid');
+          return false;
+        }else if (!passwordcorrect.test(password.value)){
+          $('#password').addClass('is-invalid');
+          return false;
+        }else{
+          $('#password').addClass('is-valid');
+          return true;
+        }
+        }
+        function check(){
+
+          let ch = document.getElementById('flexCheckDefault');
+        if(!ch.checked){
+          Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Something went wrong!",
+ 
+});
+        
+        return false;
+        }
+      }
+
+     
+    </script>
 @endsection
 

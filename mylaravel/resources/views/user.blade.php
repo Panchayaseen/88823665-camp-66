@@ -695,7 +695,7 @@
                           <td>{{$index+1}}</td>
                           <td>{{$user ->name}}</td>
                           <td class="mx-1"> <a href="{{url('/user/'.$user -> id)}}"><button class=" btn btn-warning">Edit</button></a>
-                            <form action="{{ url('/user/'.$user->id) }}" onsubmit = "" method="post" style="  display:inline">
+                            <form action="{{ url('/user/'.$user ->id) }}" onsubmit = "return clickme(event)" method="post" style="  display:inline">
                               @csrf
                               @method('delete')
                               <input type="hidden" name="id" value="{{$user->id}}">
@@ -754,25 +754,29 @@
   @section('scripts')
 
   <script>
-      function clickme(){
-        Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-   return true;
-  }
-  else{
-    
-    return false;
-  }
-});
+   
+        
+   function clickme(event) {
+    event.preventDefault(); 
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        event.target.submit(); 
       }
+    });
+
+    return false; 
+  }
+
+        
       </script>
       @endsection
   <script
