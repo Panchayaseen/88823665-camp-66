@@ -12,18 +12,25 @@
     <div class="card">
       <div class="card-body register-card-body">
         <p class="register-box-msg">Register a new membership</p>
-        <form action="{{ url('/register')}}" method="post">
+        <form action="{{ url('/register') }}" onsubmit="return myfunction();" method="post">
           @csrf
           <div class="input-group mb-3">
-            <input type="text"name="name" class="form-control" placeholder="Full Name"required />
+            <input type="text"name="name" class="form-control" placeholder="Full Name" />
             <div class="input-group-text"><span class="bi bi-person"></span></div>
+            <div class="valid-feedback">
+            OK
           </div>
+          <div class="invalid-feedback" id="invalid-name">
+            กรุณาระบุข้อมูล name
+</div>
+</div>
+
           <div class="input-group mb-3">
-            <input type="email"name="email" class="form-control" placeholder="Email"required />
+            <input type="email"name="email" class="form-control" placeholder="Email" />
             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
           </div>
           <div class="input-group mb-3">
-            <input type="password"name="password" class="form-control" placeholder="Password"required />
+            <input type="password"name="password" class="form-control" placeholder="Password" />
             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
           </div>
           <!--begin::Row-->
@@ -46,18 +53,10 @@
           </div>
           <!--end::Row-->
         </form>
-        <div class="social-auth-links text-center mb-3 d-grid gap-2">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-primary">
-            <i class="bi bi-facebook me-2"></i> Sign in using Facebook
-          </a>
-          <a href="#" class="btn btn-danger">
-            <i class="bi bi-google me-2"></i> Sign in using Google+
-          </a>
-        </div>
+        <button class="btn" onclick="myfunction()">Click Me</button>
         <!-- /.social-auth-links -->
         <p class="mb-0">
-          <a href="login.html" class="text-center"> I already have a membership </a>
+          <a href="{{ url('/login.html') }}" class="text-center"> I already have a membership </a>
         </p>
       </div>
       <!-- /.register-card-body -->
@@ -67,44 +66,41 @@
   @endsection
   @section('scripts')
   <script>
-    console.log("Hello World")
+      let myval
+      var myval2 = "value of myval2"
+      const myval3 = ""
+    console.log("Hello World!")
     //ALERT("Hello World")
+    function myfunction(){
+      console.log("in myfunction")
+    }
+
+    myfunction(){
+    let name = document.getElementById('name')
+    name = $('#name')
+    let email = document.getElementById('email')
+    let pass = document.getElementById('pass')
+    let mycheckbox = document.getElementById('mycheckbox')
+    // document.getElementsByClass()
+    // name.value = "My Name Value"
+    // name.val("My Name Value")
+    console.log(name.value, email.value, 
+                pass.value, mycheckbox.checked)
+    if(name.val() == "My Name Value"){
+      name.addClass('is-invalid');
+      $('#invalid-name').html("<b><u>ใส่ name เป็นค่านี้ไม่ได้</u></b>")
+      return false;
+    }else{
+      name.removeClass('is-invalid');
+    }
+
+    return true;
+  }
+ // myfunction()
     </script>
     <script>
 
-      //alert("Hello World!")
-      let myval
-      var myval2
-      const PI=3.14
-      pi=2
-      console.log(PI,pi)
-      let myarry = [];
-      myarry = Array()
-
-      myarry[0] = 1
-      myarry["1"] = 2
-      myarry.push(3)
-      myarry.push(4)
-      console.log(myarry)
-      myarry.pop()
-      console.log(myarry)
-      for(a=1; a<10; a++){
-        console.log(a);
-      }
-
-    function clickme(){
-      let name = document.getElemenById('name');
-      name.value = "new test"
-      name = $('#name').val("new with jquery")
-      $('#name')
-      console.log("Hello!",name)
-      return false;
-    }
-
-    $(document).ready(function(){
-
-    })
-
+      console.log(myval2)
       </script>
+@endsection
 
-      @endsection
