@@ -116,10 +116,11 @@
           let name = document.getElementById('name');
         if(name.value.trim() === ""){
           $('#name').addClass('is-invalid');
+          return false;
         }else{
           $('#name').addClass('is-valid');
+          return true;
         }
-        return true;
         }
 
 
