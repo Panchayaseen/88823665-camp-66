@@ -114,7 +114,7 @@
           $('#name').removeClass('is-invalid');
           $('#name').removeClass('is-valid');
           let name = document.getElementById('name');
-        if(name.value == ' '){
+        if(name.value.trim() === ""){
           $('#name').addClass('is-invalid');
         }else{
           $('#name').addClass('is-valid');
