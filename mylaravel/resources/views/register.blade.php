@@ -15,7 +15,7 @@
         <form action="{{ url('/register') }}" onsubmit="return myfunction();" method="post">
           @csrf
           <div class="input-group mb-3">
-            <input type="text"name="name"id="name" class="form-control"oninput = "checkName()" placeholder="Full Name" />
+            <input type="text" name="name" id="name" class="form-control" oninput = "checkName()" placeholder="Full Name" />
             <div class="input-group-text"><span class="bi bi-person"></span></div>
             <div class="valid-feedback">
             OK
@@ -65,7 +65,6 @@
           </div>
           <!--end::Row-->
         </form>
-        <button class="btn" onclick="myfunction()">Click Me</button>
         <!-- /.social-auth-links -->
         <p class="mb-0">
           <a href="{{ url('/login.html') }}" class="text-center"> I already have a membership </a>
