@@ -1,13 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use Illuminate\Http\Requst;
-use App\Models\Categories;
-use App\Models\ProductList;
+use Illuminate\Database\Eloquent\Model;
 
-class ProductController extends Controller
+class ProductList extends Model
 {
     //
-    function index()
+    protected $table = 'product_list';
+    public $timestamps = false;
+
+    protected $fillable = ['name', 'category_id', 'user_id'];
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+    public function user(){
+        return $this->belongsTo(User::class,  'user_id');
+    }
 }
